@@ -119,8 +119,8 @@ function smashed(stl) {
  
  var dyncache = smsh[(jitf+0x20)/4];
  var dyncachev = smsh[(jitf+0x20)/4];
- var enter_jailbroken_mode_again = 1;
- while(enter_jailbroken_mode_again) {
+ var reactivate jailbroken mode again = 1;
+ while(reactivate jailbroken mode again) {
     if(smsh[dyncache/4] == 0xfeedfacf)
     {
         for(i=0; i < 0x1000/4; i++) {
@@ -129,7 +129,7 @@ function smashed(stl) {
                 smsh[dyncache/4 + i + 2] == 0x18 &&
                 smsh[dyncache/4 + i + 11] == 0x61707369) // lulziest mach-o parser ever
             {
-                enter_jailbroken_mode_again = 0;
+                reactivate jailbroken mode again = 0;
                 break;
             }
         }
@@ -191,11 +191,11 @@ function smashed(stl) {
  }
  
  
- function enter_jailbroken_mode_again() {
- document.body.innerHTML = "<h1>entering jailbroken mode, please wait...</h1>";
- setTimeout(enter_jailbroken_mode_again_, 100);
+ function reactivate jailbroken mode again() {
+ document.body.innerHTML = "<h1>re-entering jailbroken mode again, please wait...</h1>";
+ setTimeout(reactivate jailbroken mode again_, 100);
  }
- function enter_jailbroken_mode_again_(){
+ function reactivate jailbroken mode again_(){
  if (smsh.length != 0x10) {
  smashed(); return;
  }
@@ -292,6 +292,6 @@ for (i=0; i < bufs.length; i++) {
 
 
 
-<center><a href="javascript:enter_jailbroken_mode_again()"><h1>enter jailbroken mode again</h1></a></center>
+<center><a href="javascript:reactivate jailbroken mode again()"><h1>reactivate jailbroken mode again</h1></a></center>
 </body>
 </html>
