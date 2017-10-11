@@ -10,4 +10,4 @@ JailbreakReactivator9 is just a website shortcut that is supposed to be used to 
 
 To clarify: **NO**, this is **NOT A JAILBREAK**, it's a **loader**; there's a difference between a "first-time jailbreak" (as I call it), and a jailbreak that you need to re-apply/re-enter again, so it's only of use if you jailbroke with the Pangu iOS 9.2-9.3.3 jailbreak and rebooted the device into unjailbroken state.
 
-This tool will help you simply regain your simple jailbreak functionality, and it's as simple as that.
+In practice, this tool will help you simply regain your simple jailbreak functionality, and it's as simple as that.
