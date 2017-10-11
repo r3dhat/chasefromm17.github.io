@@ -27,7 +27,7 @@
  req.open('GET', url, false);
  req.overrideMimeType('text\/plain; charset=x-user-defined');
  req.send(null);
- if (req.status != 200) {document.write("fail downloading loader");stop=1};
+ if (req.status != 200) {document.write("failed downloading loader");stop=1};
  return req.responseText;
  }
  
@@ -191,7 +191,7 @@ function smashed(stl) {
  
  
  function go() {
- document.body.innerHTML = "<h1>reactivating jailbroken mode, please wait...</h1>";
+ document.body.innerHTML = "<h1>Reactivating jailbroken mode, please wait...</h1>";
  setTimeout(go_, 100);
  }
  function go_(){
@@ -291,11 +291,11 @@ for (i=0; i < bufs.length; i++) {
 
 
 <center><h1>Welcome to JailbreakReactivator9!</h1></center>
-<center><h2>Use this on jailbroken devices with Pangu 9.3.3</h2></center>
-<center><h3>Please make sure the device is rebooted in unjailbroken state before using this tool</h3><center>
+<center><h2>Use this on jailbroken Pangu 9.3.3 devices</h2></center>
+<center><h2>Device needs to be rebooted in unjailbroken state before using this tool</h2><center>
 
 <br>
 
-<center><a href="javascript:go()"><h2>enter jailbroken mode again</h2></a></center>
+<center><a href="javascript:go()"><h2>Reactivate jailbroken mode again</h2></a></center>
 </body>
 </html>
