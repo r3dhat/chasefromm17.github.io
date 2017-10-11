@@ -6,4 +6,4 @@ Just a website used to reactivate your iOS 9.2-9.3.3 ARM64-bit jailbreak, no nee
 
 To clarify: **NO**, this is **NOT A JAILBREAK**, it's a **loader**, so it's only if you jailbroke with the Pangu 9.3.3 jailbreak and rebooted the device into unjailbroken state.
 
-This tool will help you regain your simple jailbreak functionality again.
+This tool will help you regain your simple jailbreak functionality, and it's useful.
